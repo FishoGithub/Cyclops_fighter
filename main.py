@@ -3,8 +3,6 @@ import random
 player_hit = 0
 enemy_hit = 0
 
-
-
 def game_over():
   print("\n\n G A M E   O V E R.")
 
@@ -34,6 +32,8 @@ def main():
       elif player_hit < enemy_hit:
         print("the cyclops hits you for more damage!")
         game_over()
+    else:
+      print("the cyclops eats you alive.")
 
 
 
