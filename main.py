@@ -3,6 +3,17 @@ import random
 player_hit = 0
 enemy_hit = 0
 
+inventory = {
+  "swords" : 0, 
+  "shields" : 1, 
+}
+
+def game_over():
+  print("\n\n G A M E   O V E R.")
+
+def game_win():
+  print("\n\n Y O U   W I N!")
+
 def main():
   global player_hit
   global enemy_hit
@@ -12,7 +23,7 @@ def main():
 
   if answer == "y":
     print("\nyou encounter a cyclops!!\n")
-    print("you have to hit the cyclops for 5 and higher to kill it, and the cyclops has to hit you for 5 and higher for you to die!\n")
+    print("if you hit the cyclops for higher damage then you can kill it!\n")
     answer = input("do you fight the cyclops? [Y,N]  ")
     if answer == "y":
       player_hit = random.randint(1, 8)
@@ -20,8 +31,15 @@ def main():
 
       print("\nyou hit the cyclops for " + str(player_hit) + " damage!\n")
       print("the cyclops hits you for " + str(enemy_hit) + " damage!")
+      if player_hit > enemy_hit:
+        print("\n you beat the cyclops!")
+        game_win()
+      elif player_hit < enemy_hit:
+        print("the cyclops hits you for more damage!")
+        game_over()
     else:
       print("the cyclops eats you alive.")
+      game_over()
 
 
 
