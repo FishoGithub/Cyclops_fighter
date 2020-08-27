@@ -5,6 +5,7 @@ import random
 player_hit = random.randint(1, 8)
 enemy_hit = random.randint(2, 9)
 inventory = []
+item_choice = ''
 
 print('Welcome to Cyclops fighting simulator!\n')
 response = input('would you like to fight the cyclops? [Y,N]  ').lower().strip()
@@ -52,13 +53,26 @@ def game_over():
 def left_path():
 	global inventory
 
-	print('\nyou decide to go left. after walking for a while, you spot a sword lying on the side of the road!')
-	print('\nyou pick up the sword.')
+	print('\nyou decide to go left. after walking for a while, you spot a weapon lying on the side of the road!')
 
-	inventory.append('sword')
+	inventory_system(item_choice)
+	inventory.append(item_choice)
 
-	print('\n"`RUSTY SWORD`"\n increases your damage chance by 3.')
-	print('\n\nyou now have a weapon to fight the cyclops.')
+	if item_choice == 'sword':
+		print('\n"`RUSTY SWORD`"\n increases your damage chance by 3.')
+		print('\n\nyou now have a weapon to fight the cyclops.')
+	elif item_choice == 'axe':
+		print('\a"`AMAZING AXE`"\n increases your damage chance by 6! wow!')
+		print('you now have a weapon to fight the cyclops.')
+	elif item_choice == 'bow':
+		print('\a"`TRUSTY BOW`"\n increases your damage chance by 2.')
+		print('you now have a weapon to fight the cyclops.')
+	elif item_choice == 'potato':
+		print('\a"`GODLY POTATO`"\n increases your damage chance by 100. wtf?')
+		print('you now have a weapon to fight the cyclops.')
+	elif item_choice == 'stick':
+		print('\a"`UNPLEASENT STICK`"\n decreases your damage chance by 1. oof.')
+		print('you now have a weapon to fight the cyclops.')
 
 
 
@@ -66,12 +80,25 @@ def right_path():
 	global inventory
 
 	print('\nyou walk down the left path. soon after, you come across what you think might be a weapon...')
-	print('\nyou pick up the stick.')
 
-	inventory.append('stick')
+	inventory_system(item_choice)
+	inventory.append(item_choice)
 
-	print('\n"`UNPLEASENT STICK`"\n decreases your damage chance by 1')
-	print('\nyou now have a weapon to fight the cyclops')
+	if item_choice == 'sword':
+		print('\n"`RUSTY SWORD`"\n increases your damage chance by 3.')
+		print('\n\nyou now have a weapon to fight the cyclops.')
+	elif item_choice == 'axe':
+		print('\a"`AMAZING AXE`"\n increases your damage chance by 6! wow!')
+		print('you now have a weapon to fight the cyclops.')
+	elif item_choice == 'bow':
+		print('\a"`TRUSTY BOW`"\n increases your damage chance by 2.')
+		print('you now have a weapon to fight the cyclops.')
+	elif item_choice == 'potato':
+		print('\a"`GODLY POTATO`"\n increases your damage chance by 100. wtf?')
+		print('you now have a weapon to fight the cyclops.')
+	elif item_choice == 'stick':
+		print('\a"`UNPLEASENT STICK`"\n decreases your damage chance by 1. oof.')
+		print('you now have a weapon to fight the cyclops.')
 
 
 
@@ -94,11 +121,17 @@ def main_script():
 				right_path()
 
 		if inventory[0] == 'sword':
+			player_hit = random.randint(4, 12)
+		elif inventory[0] == 'axe':
+			player_hit = random.randint(7, 14)
+		elif inventory[0] == 'bow':
 			player_hit = random.randint(3, 11)
+		elif inventory[0] == 'potato':
+			player_hit = random.randint(101, 201)
 		elif inventory[0] == 'stick':
-			player_hit = random.randint(0, 7)
+			player_hit = random.randint(0, 10)
 			
-		enemy_hit = random.randint(2, 9)
+		enemy_hit = random.randint(4, 18)
 		print('\nyou hit the cyclops for ' + str(player_hit) + ' damage!\n')
 		print('the cyclops hits you for ' + str(enemy_hit) + ' damage!\n')
 
