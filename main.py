@@ -1,7 +1,5 @@
 import random 
 
-
-
 player_hit = random.randint(1, 8)
 enemy_hit = random.randint(2, 9)
 inventory = []
@@ -47,6 +45,10 @@ def game_win():
 
 def game_over():
 	print('\n\n G A M E   O V E R.')
+
+def same_attack():
+  print('\nyou and the cyclops both hit each other for the same damage.\n')
+  print('\you then proceed to kick the cyclops and deal 0.0001 more damage!')
 
 
 
@@ -102,7 +104,6 @@ def right_path():
 
 
 
-
 def main_script():
 	global player_hit
 	global enemy_hit
@@ -141,8 +142,6 @@ def main_script():
 			game_over()
 	else:
 		print('\nthe cyclops eats you alive.')
-
-
 
 
 
